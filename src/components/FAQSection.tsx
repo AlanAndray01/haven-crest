@@ -29,7 +29,7 @@ const FAQSection = () => {
 
   return (
     <section className="section-padding bg-background">
-      <div className="max-w-3xl mx-auto" ref={ref}>
+      <div className="max-w-7xl mx-auto" ref={ref}>
         <div className={`text-center mb-14 ${isVisible ? "animate-fade-in-up" : "opacity-0"}`}>
           <p className="text-primary font-medium tracking-widest uppercase text-sm mb-3">FAQ</p>
           <h2 className="text-3xl md:text-4xl font-serif font-bold text-foreground">
@@ -37,22 +37,43 @@ const FAQSection = () => {
           </h2>
         </div>
 
-        <Accordion type="single" collapsible className={`space-y-3 ${isVisible ? "animate-fade-in-up" : "opacity-0"}`}>
-          {faqs.map((faq, i) => (
-            <AccordionItem
-              key={i}
-              value={`faq-${i}`}
-              className="bg-card rounded-2xl border border-border/50 px-6 overflow-hidden"
-            >
-              <AccordionTrigger className="text-left font-medium text-foreground hover:no-underline py-5 text-sm md:text-base [&>svg]:text-primary">
-                {faq.q}
-              </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground text-sm leading-relaxed pb-5">
-                {faq.a}
-              </AccordionContent>
-            </AccordionItem>
-          ))}
-        </Accordion>
+        <div className={`flex flex-col md:flex-row gap-4 md:gap-6 ${isVisible ? "animate-fade-in-up" : "opacity-0"}`}>
+          {/* Left Column */}
+          <Accordion type="single" collapsible className="flex-1 space-y-3">
+            {faqs.slice(0, Math.ceil(faqs.length / 2)).map((faq, i) => (
+              <AccordionItem
+                key={i}
+                value={`faq-left-${i}`}
+                className="bg-card rounded-2xl border border-border/50 px-6 overflow-hidden"
+              >
+                <AccordionTrigger className="text-left font-medium text-foreground hover:no-underline py-5 text-sm md:text-base [&>svg]:text-primary">
+                  {faq.q}
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground text-sm leading-relaxed pb-5">
+                  {faq.a}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+
+          {/* Right Column */}
+          <Accordion type="single" collapsible className="flex-1 space-y-3">
+            {faqs.slice(Math.ceil(faqs.length / 2)).map((faq, i) => (
+              <AccordionItem
+                key={i}
+                value={`faq-right-${i}`}
+                className="bg-card rounded-2xl border border-border/50 px-6 overflow-hidden"
+              >
+                <AccordionTrigger className="text-left font-medium text-foreground hover:no-underline py-5 text-sm md:text-base [&>svg]:text-primary">
+                  {faq.q}
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground text-sm leading-relaxed pb-5">
+                  {faq.a}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </div>
       </div>
     </section>
   );

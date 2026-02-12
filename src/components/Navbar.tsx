@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
+import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
 import { Menu, X, MapPin } from "lucide-react";
 
 const navLinks = [
@@ -27,7 +28,7 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-6xl transition-all duration-500 rounded-full px-6 py-3 ${
+      className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-7xl transition-all duration-500 rounded-3xl px-6 py-3 ${
         scrolled
           ? "bg-card/80 backdrop-blur-xl shadow-lg border border-border/50"
           : "bg-card/40 backdrop-blur-md border border-white/20"
@@ -39,9 +40,9 @@ const Navbar = () => {
           <span className="text-xl font-serif font-bold text-foreground tracking-tight">
             Albaqa <span className="text-primary">Estate</span>
           </span>
-          <span className="hidden sm:flex items-center gap-1 text-xs text-muted-foreground">
+          {/* <span className="hidden sm:flex items-center gap-1 text-xs text-muted-foreground">
             <MapPin className="w-3 h-3" /> Ajman
-          </span>
+          </span> */}
         </div>
 
         {/* Desktop Links */}
@@ -50,7 +51,7 @@ const Navbar = () => {
             <button
               key={link.href}
               onClick={() => scrollTo(link.href)}
-              className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors duration-300 relative after:content-[''] after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
+              className="text-sm font-medium text-gray-800 hover:text-primary transition-colors duration-300 relative after:content-[''] after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
             >
               {link.label}
             </button>
@@ -74,21 +75,24 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu - Accordion inside navbar */}
       {mobileOpen && (
-        <div className="md:hidden mt-4 pb-4 border-t border-border/50 pt-4 flex flex-col gap-3">
-          {navLinks.map((link) => (
-            <button
-              key={link.href}
-              onClick={() => scrollTo(link.href)}
-              className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors text-left"
-            >
-              {link.label}
-            </button>
-          ))}
+        <div className="md:hidden mt-4 pb-2 border-t border-border/50 pt-4">
+          <Accordion type="single" collapsible className="w-full">
+            {navLinks.map((link) => (
+              <AccordionItem key={link.href} value={link.href} className="border-0">
+                <AccordionTrigger
+                  onClick={() => scrollTo(link.href)}
+                  className="text-sm font-medium text-gray-800 hover:text-primary py-2 px-0 [&>svg]:hidden"
+                >
+                  {link.label}
+                </AccordionTrigger>
+              </AccordionItem>
+            ))}
+          </Accordion>
           <Button
             onClick={() => scrollTo("#contact")}
-            className="rounded-full gold-gradient text-primary-foreground border-0 mt-2 w-full"
+            className="gold-gradient text-primary-foreground border-0 mt-3 mb-2 w-full rounded-lg"
           >
             Schedule Viewing
           </Button>

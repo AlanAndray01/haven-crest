@@ -41,7 +41,7 @@ const WhyChooseUs = () => {
           {features.map((feat, i) => (
             <div
               key={feat.title}
-              className={`bg-card rounded-2xl p-7 text-center hover:shadow-lg transition-all duration-500 hover:-translate-y-1 border border-border/50 group ${
+              className={`bg-card rounded-2xl p-7 cursor-pointer text-center hover:shadow-lg transition-all duration-500 hover:-translate-y-1 border border-border/50 group ${
                 isVisible ? "animate-fade-in-up" : "opacity-0"
               }`}
               style={{ animationDelay: `${i * 100}ms` }}

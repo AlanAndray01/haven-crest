@@ -29,7 +29,7 @@ const FeaturedProperties = () => {
   const { ref, isVisible } = useScrollAnimation();
 
   return (
-    <section id="properties" className="section-padding bg-background">
+    <section id="properties" className="section-padding bg-background ">
       <div className="max-w-7xl mx-auto" ref={ref}>
         <div className={`text-center mb-14 ${isVisible ? "animate-fade-in-up" : "opacity-0"}`}>
           <p className="text-primary font-medium tracking-widest uppercase text-sm mb-3">Our Portfolio</p>
@@ -41,11 +41,11 @@ const FeaturedProperties = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-8">
           {properties.map((prop, i) => (
             <div
               key={prop.title}
-              className={`group bg-card rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 border border-border/50 ${
+              className={`group bg-card rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 border border-border/50 cursor-pointer ${
                 isVisible ? "animate-fade-in-up" : "opacity-0"
               }`}
               style={{ animationDelay: `${i * 150}ms` }}
@@ -57,9 +57,9 @@ const FeaturedProperties = () => {
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                   loading="lazy"
                 />
-                <div className="absolute top-4 left-4 gold-gradient text-primary-foreground px-4 py-1.5 rounded-full text-sm font-semibold">
+                {/* <div className="absolute top-4 left-4 gold-gradient text-primary-foreground px-4 py-1.5 rounded-full text-sm font-semibold">
                   {prop.price}
-                </div>
+                </div> */}
               </div>
               <div className="p-6">
                 <h3 className="text-lg font-serif font-semibold text-foreground">{prop.title}</h3>
@@ -67,11 +67,11 @@ const FeaturedProperties = () => {
                   <MapPin className="w-3.5 h-3.5" />
                   {prop.location}
                 </div>
-                <div className="flex items-center gap-5 mt-4 pt-4 border-t border-border/50 text-muted-foreground text-sm">
+                {/* <div className="flex items-center gap-5 mt-4 pt-4 border-t border-border/50 text-muted-foreground text-sm">
                   <span className="flex items-center gap-1.5"><Bed className="w-4 h-4" /> {prop.beds} Beds</span>
                   <span className="flex items-center gap-1.5"><Bath className="w-4 h-4" /> {prop.baths} Baths</span>
                   <span className="flex items-center gap-1.5"><Maximize className="w-4 h-4" /> {prop.sqft} sqft</span>
-                </div>
+                </div> */}
               </div>
             </div>
           ))}

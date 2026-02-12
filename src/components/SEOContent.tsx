@@ -5,7 +5,7 @@ const SEOContent = () => {
 
   return (
     <section className="section-padding bg-secondary/50">
-      <div className="max-w-4xl mx-auto" ref={ref}>
+      <div className="max-w-7xl mx-auto" ref={ref}>
         <div className={`space-y-8 ${isVisible ? "animate-fade-in-up" : "opacity-0"}`}>
           <div>
             <h2 className="text-2xl md:text-3xl font-serif font-bold text-foreground mb-4">

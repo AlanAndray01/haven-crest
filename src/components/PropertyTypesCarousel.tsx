@@ -62,24 +62,24 @@ const PropertyTypesCarousel = () => {
         {/* Carousel */}
         <div className="relative">
           <div className="overflow-hidden" ref={emblaRef}>
-            <div className="flex gap-6">
+            <div className="flex mb-4">
               {properties.map((prop) => (
-                <div key={prop.title} className="flex-[0_0_85%] sm:flex-[0_0_45%] lg:flex-[0_0_30%] min-w-0">
-                  <div className="bg-card rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-500 hover:-translate-y-1 border border-border/50 group">
+                <div key={prop.title} className="flex-[0_0_85%] px-2 sm:flex-[0_0_45%] lg:flex-[0_0_30%] min-w-0">
+                  <div className="bg-card rounded-2xl overflow-hidden cursor-pointer shadow-sm hover:shadow-lg transition-all duration-500 hover:-translate-y-1 border border-border/50 group">
                     <div className="relative overflow-hidden h-52">
                       <img src={prop.image} alt={prop.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy" />
-                      <div className="absolute top-3 left-3 gold-gradient text-primary-foreground px-3 py-1 rounded-full text-xs font-semibold">{prop.price}</div>
+                      {/* <div className="absolute top-3 left-3 gold-gradient text-primary-foreground px-3 py-1 rounded-full text-xs font-semibold">{prop.price}</div> */}
                     </div>
                     <div className="p-5">
                       <h3 className="font-serif font-semibold text-foreground">{prop.title}</h3>
                       <div className="flex items-center gap-1 text-muted-foreground text-xs mt-1">
                         <MapPin className="w-3 h-3" />{prop.location}
                       </div>
-                      <div className="flex items-center gap-4 mt-3 pt-3 border-t border-border/50 text-muted-foreground text-xs">
+                      {/* <div className="flex items-center gap-4 mt-3 pt-3 border-t border-border/50 text-muted-foreground text-xs">
                         {prop.beds > 0 && <span className="flex items-center gap-1"><Bed className="w-3.5 h-3.5" />{prop.beds}</span>}
                         <span className="flex items-center gap-1"><Bath className="w-3.5 h-3.5" />{prop.baths}</span>
                         <span className="flex items-center gap-1"><Maximize className="w-3.5 h-3.5" />{prop.sqft}</span>
-                      </div>
+                      </div> */}
                     </div>
                   </div>
                 </div>
