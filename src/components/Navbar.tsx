@@ -37,8 +37,8 @@ const Navbar = () => {
       <div className="flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center gap-2">
-          <span className="text-xl font-serif font-bold text-foreground tracking-tight">
-            Albaqa <span className="text-primary">Estate</span>
+          <span className="text-xl font-serif font-bold text-black">
+            Albaqa <span className="text-primary ">Estate</span>
           </span>
           {/* <span className="hidden sm:flex items-center gap-1 text-xs text-muted-foreground">
             <MapPin className="w-3 h-3" /> Ajman

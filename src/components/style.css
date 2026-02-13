@@ -1,0 +1,28 @@
+.force-glass {
+  position: relative;
+  isolation: isolate;
+  transform: translate3d(0, 0, 0);
+  will-change: backdrop-filter;
+  -webkit-backdrop-filter: blur(40px);
+  backdrop-filter: blur(40px);
+  background: rgba(0, 0, 0, 0.3);
+}
+
+/* Safari / Chrome repaint fix */
+.force-glass::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: inherit;
+  -webkit-backdrop-filter: blur(40px);
+  backdrop-filter: blur(40px);
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Fallback if backdrop-filter fails */
+@supports not (backdrop-filter: blur(1px)) {
+  .force-glass {
+  background: rgba(0, 0, 0, 0.3);
+  }}

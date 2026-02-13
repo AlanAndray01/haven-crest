@@ -16,14 +16,14 @@ const MapSection = () => {
 
         <div className={`rounded-3xl overflow-hidden shadow-lg border border-border/50 ${isVisible ? "animate-fade-in-up" : "opacity-0"}`}>
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d57777.82698492942!2d55.41738544863281!3d25.40539200000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f5f5f5f5f5f5f%3A0x1234567890abcdef!2sAjman%20-%20United%20Arab%20Emirates!5e0!3m2!1sen!2s!4v1700000000000!5m2!1sen!2s"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3603.4701157374952!2d55.5349341!3d25.4225419!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ef5f7c53ffe683d%3A0xd25d056fa8b7cea1!2sAl%20Baqa%20Properties%20L.L.C!5e0!3m2!1sen!2sau!4v1770895437712!5m2!1sen!2sau"
             width="100%"
             height="450"
             style={{ border: 0 }}
             allowFullScreen
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
-            title="Albaqa Estate Office Location - Ajman, UAE"
+            title="Al Baqa Properties - Ajman, UAE"
           />
         </div>
       </div>

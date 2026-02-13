@@ -32,7 +32,7 @@ const FeaturedProperties = () => {
     <section id="properties" className="section-padding bg-background ">
       <div className="max-w-7xl mx-auto" ref={ref}>
         <div className={`text-center mb-14 ${isVisible ? "animate-fade-in-up" : "opacity-0"}`}>
-          <p className="text-primary font-medium tracking-widest uppercase text-sm mb-3">Our Portfolio</p>
+          {/* <p className="text-primary font-medium tracking-widest uppercase text-sm mb-3">Our Portfolio</p> */}
           <h2 className="text-3xl md:text-4xl font-serif font-bold text-foreground">
             Featured Properties
           </h2>

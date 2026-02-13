@@ -4,6 +4,7 @@ import { Input } from "@/components/ui/input";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import ReactCountryFlag from "react-country-flag";
 import heroBg from "@/assets/hero-bg.jpg";
+import "./style.css"
 
 const stats = [
   { value: 15, suffix: "+", label: "Years Experience" },
@@ -55,7 +56,7 @@ function AnimatedNumber({ value, suffix = "", prefix = "" }: { value: number; su
   const [count, setCount] = useState(0);
 
   useEffect(() => {
-    let start = 0;  
+    let start = 0;
     const duration = 2000;
     const step = Math.ceil(value / (duration / 30));
     const timer = setInterval(() => {
@@ -78,9 +79,9 @@ function AnimatedNumber({ value, suffix = "", prefix = "" }: { value: number; su
 }
 
 const selectClass =
-  "w-full bg-white/10 border border-white/20 text-white/70 rounded-xl h-12 px-4 text-sm focus:outline-none focus:ring-2 focus:ring-primary";
+  "w-full bg-white/10 border border-white/20 text-white/80 rounded-xl h-12 px-4 text-sm focus:outline-none focus:ring-2 focus:ring-primary";
 const inputClass =
-  "bg-white/10 border-white/20 text-white placeholder:text-white/40 rounded-xl h-12";
+  "bg-white/10 border-white/20 text-white placeholder:text-white/80 rounded-xl h-12";
 
 /* ── Custom Select Dropdown ─────────────────────────────────────── */
 interface SelectOption {
@@ -123,13 +124,13 @@ function CustomSelect({
         onClick={() => setOpen((p) => !p)}
         className={`${selectClass} flex items-center justify-between gap-2 text-left`}
       >
-        <span className={selected ? "text-white" : "text-white/40"}>
+        <span className={selected ? "text-white" : "text-white/80"}>
           {selected ? selected.label : placeholder}
         </span>
         {open ? (
-          <ChevronUp className="w-4 h-4 shrink-0 text-white/50" />
+          <ChevronUp className="w-4 h-4 shrink-0 text-white/80" />
         ) : (
-          <ChevronDown className="w-4 h-4 shrink-0 text-white/50" />
+          <ChevronDown className="w-4 h-4 shrink-0 text-white/80" />
         )}
       </button>
       {open && (
@@ -141,9 +142,8 @@ function CustomSelect({
                 onChange(opt.value);
                 setOpen(false);
               }}
-              className={`px-4 py-2.5 text-sm cursor-pointer transition-colors hover:bg-white/10 ${
-                opt.value === value ? "text-primary font-medium" : "text-white/80"
-              }`}
+              className={`px-4 py-2.5 text-md cursor-pointer transition-colors hover:bg-white/10 ${opt.value === value ? "text-primary font-medium" : "text-white/80"
+                }`}
             >
               {opt.label}
             </li>
@@ -206,9 +206,8 @@ function CountryCodeSelect({
                 onChange(c.code);
                 setOpen(false);
               }}
-              className={`px-4 py-2.5 text-sm cursor-pointer transition-colors hover:bg-white/10 flex items-center gap-2 ${
-                c.code === value ? "text-primary font-medium" : "text-white/80"
-              }`}
+              className={`px-4 py-2.5 text-sm cursor-pointer transition-colors hover:bg-white/10 flex items-center gap-2 ${c.code === value ? "text-primary font-medium" : "text-white/80"
+                }`}
             >
               <ReactCountryFlag
                 countryCode={c.country}
@@ -277,7 +276,7 @@ function MergedPhoneInput({
           placeholder="Mobile Number"
           value={phone}
           onChange={(e) => onPhoneChange(e.target.value)}
-          className="flex-1 bg-transparent px-4 text-white placeholder:text-white/40 outline-none text-sm"
+          className="flex-1 bg-transparent px-4 text-white placeholder:text-white/80 outline-none text-sm"
           required
         />
       </div>
@@ -292,9 +291,8 @@ function MergedPhoneInput({
                 onCountryCodeChange(c.code);
                 setOpen(false);
               }}
-              className={`px-4 py-2.5 text-sm cursor-pointer transition-colors hover:bg-white/10 flex items-center gap-2 ${
-                c.code === countryCode ? "text-primary font-medium" : "text-white/80"
-              }`}
+              className={`px-4 py-2.5 text-sm cursor-pointer transition-colors hover:bg-white/10 flex items-center gap-2 ${c.code === countryCode ? "text-primary font-medium" : "text-white/80"
+                }`}
             >
               <ReactCountryFlag
                 countryCode={c.country}
@@ -343,13 +341,13 @@ const HeroSection = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-charcoal/85 via-charcoal/60 to-charcoal/40" />
       </div>
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-16 space-y-12">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 pt-28 pb-16 space-y-12">
         {/* Hero Content — above form */}
         <div className="space-y-8 animate-slide-in-left text-left md:text-center relative z-0">
-          <div> 
-            <p className="text-primary font-medium tracking-widest uppercase text-sm mb-4">
+          <div>
+            {/* <p className="text-primary font-medium tracking-widest uppercase text-sm mb-4">
               Premium Real Estate in Ajman
-            </p>
+            </p> */}
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-white leading-tight">
               Discover
               <span className="text-gold-gradient"> Extraordinary </span>
@@ -361,25 +359,34 @@ const HeroSection = () => {
           </div>
 
           {/* Stats */}
-          <div className="flex gap-8 max-w-7xl flex-wrap mx-auto justify-center">
+          {/* <div className="flex gap-8 max-w-7xl flex-wrap mx-auto justify-center">
             {stats.map((stat) => (
               <div key={stat.label} className="text-center">
                 <AnimatedNumber value={stat.value} suffix={stat.suffix} prefix={stat.prefix} />
                 <p className="text-xs text-white/50 mt-1 tracking-wider uppercase">{stat.label}</p>
               </div>
             ))}
-          </div>
+          </div> */}
         </div>
         {/* Form — always on top */}
         <div className="animate-slide-in-right relative z-20">
+          <div className="absolute inset-0 rounded-3xl force-glass
+ border border-white/40 pointer-events-none transform translate-z-0" />
+
           <form
             onSubmit={handleSubmit}
-            className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-8 overflow-visible"
+            className="relative rounded-3xl p-8"
           >
-            <div className="mb-6">
-              <h3 className="text-xl font-serif font-semibold text-white">Get Exclusive Access</h3>
-              <p className="text-sm text-white/60 mt-1">Connect with our luxury property specialists</p>
+            <div className="mb-6 flex items-start justify-between">
+              <div>
+                <h3 className="text-xl font-serif font-semibold text-white">Get Exclusive Access</h3>
+                <p className="text-sm text-white/60 mt-1">Connect with our luxury property specialists</p>
+              </div>
+              <p className="text-sm text-white text-bold text-right">
+                100% Confidential · No spam · Ajman-based agents
+              </p>
             </div>
+
 
             <div className="space-y-4 overflow-visible">
               {/* Row 1: Name | Phone | Email | I want to */}
@@ -493,13 +500,11 @@ const HeroSection = () => {
               </div>
             </div>
 
-            <p className="text-xs text-white/40 text-center mt-4">
-              100% Confidential · No spam · Ajman-based agents
-            </p>
+
           </form>
         </div>
 
-        
+
 
         {/* Scroll Indicator */}
         {/* <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-float">
